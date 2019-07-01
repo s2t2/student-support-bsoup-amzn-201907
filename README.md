@@ -11,6 +11,10 @@ conda activate soup-env
 pip install -r requirements.txt
 ```
 
+```sh
+python wait_for_products.py
+```
+
 
 ## Notes
 

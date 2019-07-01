@@ -17,9 +17,8 @@ print(type(soup))
 
 breakpoint()
 
-#results_list = soup.find("div", class_="s-result-list") # there are three of these
-#results_list = soup.find("div", class_="s-search-results") # there is only one of these
-results_list = soup.find("div", {"class" : "s-search-results"}) # there is only one of these
+results_list = soup.find("div", "s-search-results") # this works
+
 
 # running into "Robot Check"
 #>

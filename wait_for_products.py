@@ -9,14 +9,14 @@ from selenium import webdriver
 #from selenium.webdriver.common.by import By
 #from selenium.webdriver.support.ui import WebDriverWait
 #from selenium.webdriver.support import expected_conditions as EC
-#from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import TimeoutException
 from bs4 import BeautifulSoup
-
-request_url = "__________"
-print(f"GETTING PAGE CONTENTS FROM {request_url}")
 
 driver = webdriver.Chrome("/usr/local/bin/chromedriver") # location where chromedriver is installed
 print(type(driver))
+
+request_url = "https://www.amazon.com/s?k=gooseneck+kettle"
+print("VISITING:", request_url)
 
 driver.get(request_url)
 print(driver.title)
@@ -27,11 +27,15 @@ try:
     soup = BeautifulSoup(driver.page_source, "html.parser") # add features param to avoid warning message
     print(type(soup))
 
-    #breakpoint()
 
-    print("2019 STATS:")
+    breakpoint()
 
-    #my_table = soup.find("table", id="______")
+
+    #results_list = soup.find("div", class_="s-result-list") # there are three of these
+    #results_list = soup.find("div", class_="s-search-results") # there is only one of these
+    results_list = soup.find("div", {"class" : "s-search-results"}) # there is only one of these
+
+
 
 
 except TimeoutException:
