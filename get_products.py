@@ -4,7 +4,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-request_url = "______________"
+request_url = "https://www.amazon.com/s?k=gooseneck+kettle"
 print("GETTING PAGE CONTENTS FROM:", request_url)
 
 response = requests.get(request_url)
@@ -17,4 +17,16 @@ print(type(soup))
 
 breakpoint()
 
-#my_table = soup.find("table", id="_________")
+#results_list = soup.find("div", class_="s-result-list") # there are three of these
+#results_list = soup.find("div", class_="s-search-results") # there is only one of these
+results_list = soup.find("div", {"class" : "s-search-results"}) # there is only one of these
+
+# running into "Robot Check"
+#>
+#> Robot Check\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+#> Enter the characters you see below\n
+#> Sorry, we just need to make sure you\'re not a robot.
+#> For best results, please make sure your browser is accepting cookies.\n\n\n\n\n\n\n\n\n\n\n
+#> Type the characters you see in this image:\n\n\n\n\n\n\n\n\n
+#> Try different image\n\n\n\n\n\n\n\n\n\n\n\n
+#> Continue shopping\n\n\n\n\n\n\n\n\n\n\n\n
