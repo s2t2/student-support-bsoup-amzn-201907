@@ -17,6 +17,7 @@ print(type(soup))
 
 breakpoint()
 
+
 results_list = soup.find("div", "s-search-results") # this works
 
 
